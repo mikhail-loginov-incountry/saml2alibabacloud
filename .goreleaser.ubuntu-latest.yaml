@@ -1,7 +1,8 @@
+version: 2
 project_name: saml2alibabacloud
 release:
   github:
-    owner: aliyun
+    owner: mikhail-loginov-incountry
     name: saml2alibabacloud
 
 builds:

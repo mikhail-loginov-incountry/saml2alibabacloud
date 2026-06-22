@@ -21,3 +21,4 @@ bin/
 .envrc
 # Added by goreleaser init:
 dist/
+./saml2alibabacloud

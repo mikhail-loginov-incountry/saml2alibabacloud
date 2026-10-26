@@ -97,7 +97,7 @@ func Login(loginFlags *flags.LoginExecFlags) error {
 	if err != nil {
 		return errors.Wrap(err, "error logging into AlibabaCloud role using saml assertion")
 	}
-
+    
 	return saveCredentials(alibabacloudCreds, sharedCreds)
 }
 
@@ -277,7 +277,8 @@ func loginToStsUsingRole(account *cfg.IDPAccount, role *saml2alibabacloud.RamRol
 	if err != nil {
 		return nil, errors.Wrap(err, "error retrieving STS credentials using SAML")
 	}
-
+    
+	log.Printf("STS token expires at %s", response.Credentials.Expiration)
 	return &alibabacloudconfig.AliCloudCredentials{
 		AliCloudAccessKey:     response.Credentials.AccessKeyId,
 		AliCloudSecretKey:     response.Credentials.AccessKeySecret,

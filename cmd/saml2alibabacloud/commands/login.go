@@ -14,6 +14,7 @@ import (
 	"github.com/aliyun/saml2alibabacloud/pkg/flags"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
+	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests"
 )
 
 // Login login to ADFS
@@ -271,6 +272,7 @@ func loginToStsUsingRole(account *cfg.IDPAccount, role *saml2alibabacloud.RamRol
 
 	log.Println("Requesting AlibabaCloud credentials using SAML assertion")
 
+    request.DurationSeconds = requests.NewInteger(account.SessionDuration)
 	response, err := client.AssumeRoleWithSAML(request)
 	if err != nil {
 		return nil, errors.Wrap(err, "error retrieving STS credentials using SAML")

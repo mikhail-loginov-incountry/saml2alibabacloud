@@ -1,9 +1,3 @@
-project_name: saml2alibabacloud
-release:
-  github:
-    owner: aliyun
-    name: saml2alibabacloud
-
 builds:
   - id: saml2alibabacloud_windows
     main: ./cmd/saml2alibabacloud/main.go
